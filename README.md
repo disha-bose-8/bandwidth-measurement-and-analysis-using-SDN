@@ -129,7 +129,7 @@ git clone https://github.com/noxrepo/pox.git ~/pox
 
 ```bash
 git clone https://github.com/<disha-bose-8>/sdn-bandwidth-project.git
-cd sdn-bandwidth-project
+cd sdn_project
 
 # Copy controller into POX's ext/ directory
 cp controller/bandwidth_controller.py ~/pox/ext/
@@ -233,7 +233,7 @@ The flow table dump confirmed 720,409 packets matched the TCP forwarding rules (
 ## Project Structure
 
 ```
-sdn-bandwidth-project/
+bandwidth-measurement-and-analysis-using-SDN/
 ├── controller/
 │   └── bandwidth_controller.py   # Custom POX controller logic
 ├── tests/
