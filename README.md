@@ -128,7 +128,7 @@ git clone https://github.com/noxrepo/pox.git ~/pox
 ### Installation
 
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/sdn-bandwidth-project.git
+git clone https://github.com/<disha-bose-8>/sdn-bandwidth-project.git
 cd sdn-bandwidth-project
 
 # Copy controller into POX's ext/ directory
@@ -199,15 +199,16 @@ sudo python3 tests/validate.py
 ![Performance Results](screenshots/4.Performance.png)
 
 | Metric           | Single Switch | Linear Topology |
-| ---------------- | ------------- | --------------- |
+| ---------------- | ------------- |-----------------|
 | Throughput h1→h2 | 61.2 Gbps     | 56.2 Gbps       |
 | RTT (ping h1→h2) | 0.171 ms      | 0.660 ms        |
-| Hops h1→h2       | 1             | 3               |
+| Hops h1→h2       | 1             | 2               |
 
 ---
 
 **Performance Analysis:**
 The single-switch topology achieved a throughput of 61.2 Gbps, while the linear topology showed a decrease to 56.2 Gbps. This confirms that increased hop counts introduce minor processing overhead. Latency for the single switch was 0.171 ms, increasing to 0.660 ms in the linear configuration, demonstrating the impact of multi-switch propagation.
+The flow table dump confirmed 720,409 packets matched the TCP forwarding rules (h2→h3) carrying ~317 MB of data. The priority-20 firewall drop rules matched 15 packets from h1→h3, confirming the access control policy was enforced correctly.
 
 ---
 
@@ -215,9 +216,14 @@ The single-switch topology achieved a throughput of 61.2 Gbps, while the linear 
 
 * Flow Table (ovs-ofctl dump-flows s1)
 ![Flow Tables](screenshots/5.Flow Tables.png)
+![n_packets n_bytes](screenshots/n_packets.png)
+![n_packets n_bytes](screenshots/packets_bytes.png)
 
 * iperf Results
 ![iperf](screenshots/iperf.png)
+![iperf](screenshots/scenario3.png)
+
+
 
 * Validation Output
 ![Validation Results](screenshots/6.Validation.png)
@@ -230,11 +236,11 @@ The single-switch topology achieved a throughput of 61.2 Gbps, while the linear 
 sdn-bandwidth-project/
 ├── controller/
 │   └── bandwidth_controller.py   # Custom POX controller logic
+├── tests/
+│   └── validate.py               # Automated regression tests
 ├── topology/
 │   ├── topology_single.py        # Single switch topology script
 │   └── topology_linear.py        # Linear topology script
-├── tests/
-│   └── validate.py               # Automated regression tests
 ├── screenshots/                  # Execution proof
 └── README.md
 ```
