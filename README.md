@@ -145,7 +145,7 @@ cp controller/bandwidth_controller.py ~/pox/ext/
 cd ~/pox
 python3 pox.py log.level --DEBUG bandwidth_controller
 ```
-![Controller Setup](screenshots/2.Controller Setup.png)
+![Controller Setup](screenshots/2.Controller_Setup.png)
 
 ---
 
@@ -155,7 +155,7 @@ python3 pox.py log.level --DEBUG bandwidth_controller
 sudo python3 topology/topology_single.py
 ```
 
-![Single Switch](screenshots/SINGLESWITCH TOP.png)
+![Single Switch](screenshots/SINGLESWITCH_TOP.png)
 ![Single Switch](screenshots/single.png)
 ![Single Switch](screenshots/single2.png)
 
@@ -184,7 +184,7 @@ sudo python3 tests/validate.py
 
 ### Scenario 1 – Allowed vs Blocked (Firewall Test)
 
-![Firewall Logic](screenshots/3.Firewall Logic.png)
+![Firewall Logic](screenshots/3.Firewall_Logic.png)
 
 | Test       | Expected Result       | Actual Result |
 | ---------- | --------------------- | ------------- |
@@ -215,7 +215,7 @@ The flow table dump confirmed 720,409 packets matched the TCP forwarding rules (
 ## Proof of Execution
 
 * Flow Table (ovs-ofctl dump-flows s1)
-![Flow Tables](screenshots/5.Flow Tables.png)
+![Flow Tables](screenshots/5.FlowTables.png)
 ![n_packets n_bytes](screenshots/n_packets.png)
 ![n_packets n_bytes](screenshots/packets_bytes.png)
 
